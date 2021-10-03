@@ -1,6 +1,6 @@
 ---
 title: "Rustで土日祝を色付きで出力するCLIツールを作ってみた"
-emoji: "👋"
+emoji: "⌛️"
 type: "tech"
 topics: [rust]
 published: true
