@@ -9,19 +9,19 @@ published: true
 ## button タグの disabled 属性とは
 
 簡単に言うと、HTML のボタンタグを無効化するかどうか、です。
-disabled はには true/false のどちらかの値を付与でき、disabled 属性が true になっている間はボタンが無効化されます。(デフォルトは false)
+disabled はには true/false のどちらかの値を付与でき、disabled 属性が true になっている間はボタンが無効化(クリック不可)されます。(デフォルトは false)
 
 ↓ 参考
 https://developer.mozilla.org/ja/docs/Web/HTML/Element/button
 
 ## 今回伝えたいこと
 
-JS で作成、更新、削除といった処理のローディング中にボタンを disabled=true にしないと、ボタンの連打で予期せぬ挙動やエラーなどが起きたりする可能性があるので、注意しようという話です。
+React や Next.js など、JavaScript で作成、更新、削除といった処理のローディング中にボタンを disabled=true にしないと、ボタンの連打で予期せぬ挙動やエラーなどが起きたりする可能性があるので、注意しようという話です。
 
 ### 具体的な実装例
 
 React(Next.js), GraphQL (Apollo Client) の場合での、ローディング中にボタンを無効化する例です。
-react-host-toast も使用していますが、特に関係ないので無視してもらって大丈夫です。
+※ react-host-toast も使用していますが、特に関係ないので無視してもらって大丈夫です。
 
 ```tsx:SampleComponent.tsx
 import toast from "react-hot-toast";
@@ -44,8 +44,8 @@ export const SampleComponent: React.VFC = () => {
     e.preventDefault();
     const toastId = toast.loading("作成中");
     try {
-      const { data, errors } = await createThread({
-        variables: {title: inputVal},
+      const { errors } = await mutation({
+        variables: { title: inputVal },
       });
       if (errors) throw errors;
       toast.success("成功", { id: toastId });
