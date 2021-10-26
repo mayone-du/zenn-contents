@@ -2,16 +2,18 @@
 title: "GraphQL APIをfetchメソッドで叩く方法"
 emoji: "🐈"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: [graphql]
+topics: [graphql, javascript, typescript]
 published: false
 ---
 
-Chrome 拡張機能を作る際に GraphQL API を fetch メソッドで叩いたことが合ったので、その際のメモになります。
+Chrome 拡張機能を作る際に GraphQL API を fetch メソッドで叩いたことがあったので、その際のメモになります。
+
+↓ 例
 
 ```tsx:sample.tsx
 const handleClick = () => {
   try {
-    fetch("https://something-grpahql-api.com/", {
+    fetch("https://架空のGraphQLAPIエンドポイント.com/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -40,3 +42,5 @@ const handleClick = () => {
   }
 };
 ```
+
+適宜 mutation の部分を query にかえたり、非同期の処理周りを調整して下さい。
