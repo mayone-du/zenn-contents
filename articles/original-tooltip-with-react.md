@@ -1,9 +1,9 @@
 ---
-title: "超シンプルなツールチップのコンポーネントを自作した"
+title: "超シンプルなツールチップコンポーネントを自作した"
 emoji: "💡"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: [react, nextjs, tailwindcss]
-published: false
+published: true
 ---
 
 ## はじめに
@@ -16,11 +16,13 @@ Next.js でシンプルないい感じのツールチップコンポーネント
 
 ### 今回作るもの
 
-gif を掲載
+![](/images/react/tooltip-demo.gif)
+
+↑ のようなツールチップコンポーネント
 
 ## 本文
 
-ソースコードの表示後にツールチップの説明を記載します。
+ソースコードの掲載後にコンポーネントの説明を記載します。
 
 ### 最終的なソースコード
 
@@ -34,6 +36,7 @@ type Props = {
 
 // ツールチップ
 export const Tooltip: React.FC<Props> = memo((props) => {
+  // ツールチップの文言自体のためのref
   const ref = useRef<HTMLDivElement>(null);
 
   // マウスが乗ったらツールチップを表示
@@ -71,13 +74,30 @@ Tooltip.displayName = "Tooltip";
 ```
 
 最初に useRef でツールチップテキストの div タグへの ref を取得します。
-その後 handleMouseEnter, handleMouseLeave でツールチップの表示・非表示を制御します。
-ref が存在すれば、ツールチップのテキストを style で表示・非表示にするだけです。
+その後 handleMouseEnter, handleMouseLeave でツールチップの表示・非表示を制御する関数を定義します。
+上記２つの関数がやっていることは、ref が存在すれば、ツールチップのテキストを style で表示・非表示にするだけです。
+このマウスオーバーの関数をツールチップの文言と、children にわたすことで最初の GIF のような挙動になります。
 
 #### 使い方
 
-使う側で hover したときにツールチップを表示したい要素を<Tooltip>children</Tooltip>で囲みます。
+使う側で hover したときにツールチップを表示したい要素を
+
+```tsx:
+<Tooltip tooltipText="ツールチップの文言だよ">アイコンとか</Tooltip>
+```
+
+のようにして使います。
 
 ## まとめ
 
-最後までご覧頂きありがとうございました。
+- シンプルなツールチップコンポーネントの自作は意外と簡単
+- ツールチップのテキスト部分をリンクにしても良いかも
+- 結局大変なのは CSS
+
+シンプルなツールチップコンポーネントを自作してみました。
+ちなみに ↓ の記事を参考にさせていただきました。よければこちらも読んでみると良いかもしれないです。
+
+https://dev.to/alexandprivate/build-your-own-react-tooltip-component-25bd
+
+最後までご覧頂きありがとうございました!
+間違いやもっとこうしたほうが良いなどあればご指摘ください 🙏
