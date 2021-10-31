@@ -12,7 +12,8 @@ Next.js でシンプルないい感じのツールチップコンポーネント
 
 ### 前提
 
-- React / Next.js / TypeScript の基礎理解、環境構築済み
+- React / Next.js / TypeScript の基礎理解、環境構築
+- Tailwind CSS の基礎理解、環境構築
 
 ### 今回作るもの
 
