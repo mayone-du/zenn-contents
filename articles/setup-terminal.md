@@ -32,7 +32,7 @@ https://github.com/yuru7/HackGen
 1. iTerm2 のインストール
 
 ```bash:terminal
-brew cask install iterm2
+brew install iterm2 --cask
 ```
 
 2. hackgen-nerd-fonts のインストール
@@ -44,7 +44,7 @@ brew cask install iterm2
 
 ```bash:terminal
 brew tap homebrew/cask-fonts
-brew cask install hackgen-nerd-fonts
+brew install hackgen-nerd-fonts
 ```
 
 3. starship のインストール
