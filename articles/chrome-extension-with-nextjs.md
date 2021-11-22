@@ -1,5 +1,5 @@
 ---
-title: "Next.js, TypeScript, Tailwind CSS で快適に始めるChrome拡張機能開発"
+title: "Next.js, TypeScript, Tailwind CSS で快適に開発する（かもしれない）Chrome拡張機能開発"
 emoji: "🔌"
 type: "tech" # tech: 技術記事 / idea: アイデア
 topics: []
@@ -8,17 +8,21 @@ published: false
 
 ## はじめに
 
+こんにちは。実務が始まって 3 週間ほどのまよねーづです。
+みなさんは Chrome 拡張機能の開発をしたことがありますか？
+自分は過去に 1 度つくったことがあるのですが、
+
 - Next.js
 - TypeScript
 - Tailwind CSS
 
-上記スタックで Chrome 拡張機能を作ったので、それについての解説記事です。
-テンプレートも作成したので、手軽に Chrome 拡張を作りたい人は是非ご活用ください。
+上記スタックで Chrome 拡張機能を作り、その副産物としてテンプレートリポジトリを作成したので、それの紹介記事です。
+手軽に Chrome 拡張を作りたい人は下記リポジトリを是非ご活用ください。
 
 https://github.com/mayone-du/chrome-extension-template-with-nextjs
 
 :::message
-改善案などあれば、PR,コメント等 お待ちしてます！
+改善案などあれば、是非 PR,コメント等 いただけると嬉しいです 🙏
 :::
 
 ### 前提
@@ -28,19 +32,21 @@ https://github.com/mayone-du/chrome-extension-template-with-nextjs
 
 Chrome 拡張についての基礎知識は、既にわかりやすい記事があるのでそちらを参考にしてください。
 
-### 今回作るもの
-
-## 本文
-
 ## テンプレートリポジトリの使い方
 
 README にも記載してますが、ここでも説明します。
 
-- ビルドは、`npm run export`で/extension 以下に出力されます。
-- /src/scripts いかの 2 種類のファイルが、それぞれ Chrome 拡張用のスクリプトファイルです。
-- 自分で webpack の設定を書いて Chrome 用のスクリプトをバンドルしてるので、いじる際は webpack の設定も見直してください。
+- ビルドは、`npm run export`で /extension 以下に出力されます。Chrome 側で拡張機能を読み込む際は /extensions を選択してください。
+- /src/scripts 以下の 2 種類のファイルが、それぞれ Chrome 拡張用のスクリプトファイルです。(content.js | background.js)
+- 自分で webpack の設定を書いて Chrome 用のスクリプトをバンドルしています。ここらへんのパスやフォルダ構成等をいじる際は、webpack の設定も見直してください。
 - 適宜 manifest.json や linter, formatter の設定を変えてください。
-- 確認方法が今の所（2021/11/23 日現在）毎回ビルドするしかなく効率が悪いです。誰か助けてください。(おい)
+
+## 欠点
+
+実は、このリポジトリは大きな欠点があり、開発中の動作確認方法が今の所（2021/11/23 日現在）毎回ビルド(npm run export)するしかなく、効率が悪いです。タイトル詐欺ってごめんなさい。
+ですが自分も含めそのうち誰かしらいい感じにしてくれると思うので、修正でき次第記事も直します。
+UI だけであれば普通に`npm run dev`すればいいのですが、ChromeAPI を使うとなるとエラーでそれどころではないので、、、
+もし本格的に Chrome 拡張の開発をしたことがある人や、なにか良い方法があれば是非コメント等よろしくおねがいします。
 
 ## まとめ
 
