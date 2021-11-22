@@ -2,7 +2,7 @@
 title: "Next.js, TypeScript, Tailwind CSS で快適に開発する（かもしれない）Chrome拡張機能開発"
 emoji: "🔌"
 type: "tech" # tech: 技術記事 / idea: アイデア
-topics: []
+topics: [chrome, extension, nextjs, react, typescript, tailwindcss]
 published: false
 ---
 
@@ -10,19 +10,23 @@ published: false
 
 こんにちは。実務が始まって 3 週間ほどのまよねーづです。
 みなさんは Chrome 拡張機能の開発をしたことがありますか？
-自分は過去に 1 度つくったことがあるのですが、
+自分は過去に 1 度つくったことがあるのですが、素の HTML / CSS / JS のみで開発したり、海外の方の React / TypeScript のテンプレートをクローンして、CSS Modules を使って開発することしかありませんでした。
+せっかくだし Chrome 拡張も下記スタックで作れたら良いよねってことで、今回挑戦して作ってみました。
 
 - Next.js
 - TypeScript
 - Tailwind CSS
 
-上記スタックで Chrome 拡張機能を作り、その副産物としてテンプレートリポジトリを作成したので、それの紹介記事です。
-手軽に Chrome 拡張を作りたい人は下記リポジトリを是非ご活用ください。
+今回は上記スタックで Chrome 拡張機能を作り、その副産物としてテンプレートリポジトリを作成したので、それの紹介記事です。
+手軽に Chrome 拡張を作りたい人は、是非今回紹介する ↓ のテンプレートリポジトリをご活用ください。
 
 https://github.com/mayone-du/chrome-extension-template-with-nextjs
 
+**初期の動作**
+![](/images/react/chrome-extension-template-demo.gif)
+
 :::message
-改善案などあれば、是非 PR,コメント等 いただけると嬉しいです 🙏
+最低限の使い方は README にも書いてあるので、こちらの記事は読み飛ばしてもらっても使用できると思います。
 :::
 
 ### 前提
