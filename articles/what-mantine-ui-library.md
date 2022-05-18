@@ -80,6 +80,8 @@ form の hook が提供されている
 
 3.
 
+## Mantine のセットアップ(with Next.js / TypeScript)
+
 ## form 系コンポーネントの使い方紹介
 
 基本的な使い方は、ReactHookForm を触ったことがある人なら簡単にわかると思います。
