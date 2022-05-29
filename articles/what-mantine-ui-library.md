@@ -99,6 +99,15 @@ Mantine によって`useForm`という hooks が提供されており、form 系
 
 基本的な使い方は、ReactHookForm を触ったことがある人なら簡単にわかると思います。
 
+```tsx
+import { useForm } from
+
+type Fieldtype = {
+  name: string,
+  value: string,
+}
+```
+
 ## 【番外編】Tailwind CSS との併用 Tips
 
 1. リセット CSS が競合する
