@@ -95,26 +95,50 @@ Mantine によって`useForm`という hooks が提供されており、form 系
 
 ## Mantine のセットアップ(with Next.js / TypeScript)
 
-## form 系コンポーネントの使い方紹介
+## useForm フック、TextInput コンポーネントの簡単な使い方紹介
 
-基本的な使い方は、ReactHookForm を触ったことがある人なら簡単にわかると思います。
+基本的な使い方は、`ReactHookForm` と API が非常に似ている（というか Mantine が ReactHookForm をラップしているぽい）ので、`ReactHookForm`を触ったことがある人なら簡単にわかると思います。
 
 ```tsx
-import { useForm } from
+import { TextInput, PasswordInput } from "@mantine/core";
+import { useForm } from "@mantine/form";
 
-type Fieldtype = {
-  name: string,
-  value: string,
-}
+// フォームで扱うキーと値の型を指定
+type FieldValues = {
+  name: string;
+  password: string;
+};
+
+const Sample: VFC = () => {
+  // genericsで型を渡すことで、initialValuesやvalidate、getInputPropsで型が補完される
+  const { onSubmit, reset, getInputProps } = useForm<FieldValues>({
+    initialValues: { name: "" },
+    validate: {
+      name: (value) => {
+        if (!value) return "名前を入力してください";
+      },
+      password: (value) => {
+        if (!value) return "パスワードを入力してください";
+        if (value.length < 8) return "8文字以上で入力してください";
+      },
+    },
+  });
+  const handleSubmit = onSubmit(async (values) => {
+    console.log(values); // { name: string, password: string }
+  });
+  return (
+    <form onSubmit={handleSubmit}>
+      <TextInput label="名前" {...getInputProps("name")} />
+      <PasswordInput label="名前" {...getInputProps("name")} />
+    </form>
+  );
+};
 ```
 
-## 【番外編】Tailwind CSS との併用 Tips
+### 番外編
 
-1. リセット CSS が競合する
-
-2. ダークモード対応
-
-3. classNames を使うのと、Box やら補完
+自分はもともと`Tailwind CSS`が好きで`Mantine`と併用しているのですが、併用する際の Tips をまとめた記事を書きました。
+もし自分みたいに併用したい方がいたらきっと役に立つと思いますので、ぜひご覧いただければと思います
 
 ## 最後に
 
