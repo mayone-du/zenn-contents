@@ -51,7 +51,7 @@ DatePicker や Notification、RichTextEditor など、専用の別ライブラ�
 
 2. ダークモード対応
 
-デフォルトで
+デフォルトでダークモードに対応しています。
 
 3. カスタマイズしやすい
 
