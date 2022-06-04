@@ -6,4 +6,8 @@ Mantine と Tailwind CSS を併用する際の Tips
 
 2. ダークモード対応
 
+Tailwind CSS で class 指定
+
+tailwind.config.js で class 指定
+
 3. classNames を使うのと、Box やら補完
